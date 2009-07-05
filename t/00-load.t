@@ -3,7 +3,7 @@
 use Test::More tests => 1;
 
 BEGIN {
-	use_ok( 'Perl::Critic::Periscope' );
+	use_ok( 'Perl::Critic::Policy::Periscope' );
 }
 
-diag( "Testing Perl::Critic::Periscope $Perl::Critic::Periscope::VERSION, Perl $], $^X" );
+diag( "Testing Perl::Critic::Policy::Periscope $Perl::Critic::Policy::Periscope::VERSION, Perl $], $^X" );

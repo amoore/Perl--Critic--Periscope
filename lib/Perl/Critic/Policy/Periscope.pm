@@ -1,4 +1,4 @@
-package Perl::Critic::Periscope;
+package Perl::Critic::Policy::Periscope;
 
 use warnings;
 use strict;
