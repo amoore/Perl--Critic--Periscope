@@ -19,7 +19,7 @@ Readonly::Scalar my $EXPL => q{$* has been depreacated in favor of the /s and /m
 sub supported_parameters { return ()                    }
 sub default_severity     { return $SEVERITY_MEDIUM      }
 sub default_themes       { return qw(periscope)         }
-sub applies_to           { return 'PPI::Token::Word'    }
+sub applies_to           { return 'PPI::Token::Magic'   }
 
 #-----------------------------------------------------------------------------
 
@@ -27,6 +27,7 @@ sub violates {
     my ($self, $elem, $doc) = @_;
 
     if ( $elem eq '$*' ) {
+	my $sev = $self->get_severity();
 	return $self->violation( $DESC, $EXPL, $elem, $sev );
     }
     return;
