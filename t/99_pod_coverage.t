@@ -1,0 +1,84 @@
+#!perl
+
+# "stolen" from the Perl::Critic distrubution on July 5, 2009 with this command:
+# wget http://cpansearch.perl.org/src/ELLIOTJS/Perl-Critic-1.098/t/99_pod_coverage.t
+# The rest of this file is unedited.
+
+##############################################################################
+#     $URL: http://perlcritic.tigris.org/svn/perlcritic/trunk/distributions/Perl-Critic/t/99_pod_coverage.t $
+#    $Date: 2009-03-07 08:51:16 -0600 (Sat, 07 Mar 2009) $
+#   $Author: clonezone $
+# $Revision: 3227 $
+##############################################################################
+
+use 5.006001;
+use strict;
+use warnings;
+
+use English qw< -no_match_vars >;
+
+use Test::More;
+
+#-----------------------------------------------------------------------------
+
+our $VERSION = '1.098';
+
+#-----------------------------------------------------------------------------
+
+eval 'use Test::Pod::Coverage 1.04; 1'
+    or plan skip_all => 'Test::Pod::Coverage 1.00 requried to test POD';
+
+{
+    # HACK: Perl::Critic::Violation uses Pod::Parser to extract the
+    # DIAGNOSTIC section of the POD in each Policy module.  This
+    # happens when the Policy first C<uses> the Violation module.
+    # Meanwhile, Pod::Coverage also uses Pod::Parser to extract the
+    # POD and compare it with the subroutines that are in the symbol
+    # table for that module.  For reasons I cannot yet explain, using
+    # Pod::Parser twice this way causes the symbol table to get very
+    # wacky and this test script dies with "Can't call method 'OPEN'
+    # on IO::String at line 1239 of Pod/Parser.pm".
+
+    # For now, my workaround is to temporarily redefine the import()
+    # method in the Violation module so that it doesn't do any Pod
+    # parsing.  I'll look for a better solution (or file a bug report)
+    # when / if I have better understanding of the problem.
+
+    no warnings qw<redefine once>; ## no critic (ProhibitNoWarnings)
+    require Perl::Critic::Violation;
+    *Perl::Critic::Violation::import = sub { 1 };
+}
+
+my @trusted_methods  = get_trusted_methods();
+my $method_string = join ' | ', @trusted_methods;
+my $trusted_rx = qr{ \A (?: $method_string ) \z }xms;
+all_pod_coverage_ok( {trustme => [$trusted_rx]} );
+
+#-----------------------------------------------------------------------------
+
+sub get_trusted_methods {
+    return qw(
+        new
+        initialize_if_enabled
+        prepare_to_scan_document
+        violates
+        applies_to
+        default_themes
+        default_maximum_violations_per_document
+        default_severity
+        supported_parameters
+        description
+        Fields
+        got_sigpipe
+    );
+}
+
+##############################################################################
+# Local Variables:
+#   mode: cperl
+#   cperl-indent-level: 4
+#   fill-column: 78
+#   indent-tabs-mode: nil
+#   c-indentation-style: bsd
+# End:
+# ex: set ts=8 sts=4 sw=4 tw=78 ft=perl expandtab shiftround :
