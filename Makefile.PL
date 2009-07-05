@@ -5,8 +5,8 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME                => 'Perl::Critic::Periscope',
     AUTHOR              => 'Andrew Moore <amoore@cpan.org>',
-    VERSION_FROM        => 'lib/Perl/Critic/Policy/Periscope.pm',
-    ABSTRACT_FROM       => 'lib/Perl/Critic/Policy/Periscope.pm',
+    VERSION_FROM        => 'lib/Perl/Critic//Periscope.pm',
+    ABSTRACT_FROM       => 'lib/Perl/Critic/Periscope.pm',
     ($ExtUtils::MakeMaker::VERSION >= 6.3002
       ? ('LICENSE'=> 'perl')
       : ()),
