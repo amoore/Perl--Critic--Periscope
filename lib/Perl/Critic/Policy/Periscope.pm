@@ -1,4 +1,4 @@
-package Perl::Critic::Policy::Periscope;
+package Perl::Critic::Periscope;
 
 use warnings;
 use strict;
@@ -15,38 +15,42 @@ Version 0.01
 
 our $VERSION = '0.01';
 
+1;
+
+__END__
+
+
+=head1 AFFILIATION
+
+This module has no functionality, but instead contains documentation
+for this distribution and acts as a means of pulling other modules
+into a bundle.  All of the Policy modules contained herein will have
+an "AFFILIATION" section announcing their participation in this
+grouping.
+
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
+Some L<Perl::Critic|Perl::Critic> policies to help ensure that your
+code does not use features that have been deprecated in future
+versions of perl.
 
-Perhaps a little code snippet.
+=head1 DESCRIPTION
 
-    use Perl::Critic::Periscope;
+The included policies are:
 
-    my $foo = Perl::Critic::Periscope->new();
-    ...
+=over
 
-=head1 EXPORT
+=item L<Perl::Critic::Policy::Periscope::ProhibitDollarStar>
 
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
+prohibits use of $* [Severity: 3]
 
-=head1 FUNCTIONS
+=back
 
-=head2 function1
+=head1 CONFIGURATION AND ENVIRONMENT
 
-=cut
-
-sub function1 {
-}
-
-=head2 function2
-
-=cut
-
-sub function2 {
-}
+All policies included are in the "example" theme.  See the
+L<Perl::Critic|Perl::Critic> documentation for how to make use of this.
 
 =head1 AUTHOR
 
@@ -57,8 +61,6 @@ Andrew Moore, C<< <amoore at cpan.org> >>
 Please report any bugs or feature requests to C<bug-perl-critic-periscope at rt.cpan.org>, or through
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Perl-Critic-Periscope>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
-
-
 
 
 =head1 SUPPORT
@@ -101,7 +103,7 @@ Copyright 2009 Andrew Moore, all rights reserved.
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
 
-
 =cut
 
-1; # End of Perl::Critic::Periscope
+
+
