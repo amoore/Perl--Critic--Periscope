@@ -4,6 +4,9 @@ The Perl::Critic::Periscope package is a set of Perl::Critic policies
 to help programmers judge if their perl code is compliant with
 features that have been depricated in versions of perl.
 
+For more detailed documentation, please see the embedded perldoc in
+the Perl::Critic::Periscope module.
+
 INSTALLATION
 
 To install this module, run the following commands:

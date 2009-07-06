@@ -3,6 +3,10 @@ MANIFEST
 Makefile.PL
 README
 lib/Perl/Critic/Periscope.pm
+lib/Perl/Critic/Policy/Periscope/ProhibitDollarStar.pm
 t/00-load.t
-t/pod-coverage.t
+t/20_policies.t
+t/99_pod_coverage.t
+t/boilerplate.t
+t/Periscope/ProhibitDollarStar.run
 t/pod.t

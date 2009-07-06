@@ -5,11 +5,16 @@ use strict;
 
 =head1 NAME
 
-Perl::Critic::Periscope - The great new Perl::Critic::Periscope!
+Perl::Critic::Periscope - Find code that uses deprecated features
 
 =head1 VERSION
 
 Version 0.01
+
+I hope that the version number makes this clear, but this is alpha
+code. It is not meant to be used in production or relied on. In fact,
+it's mostly a proof of concept, and I may very well completely change
+it, abandon it, or even delete it tomorrow.
 
 =cut
 
@@ -20,15 +25,6 @@ our $VERSION = '0.01';
 __END__
 
 
-=head1 AFFILIATION
-
-This module has no functionality, but instead contains documentation
-for this distribution and acts as a means of pulling other modules
-into a bundle.  All of the Policy modules contained herein will have
-an "AFFILIATION" section announcing their participation in this
-grouping.
-
-
 =head1 SYNOPSIS
 
 Some L<Perl::Critic|Perl::Critic> policies to help ensure that your
@@ -36,6 +32,13 @@ code does not use features that have been deprecated in future
 versions of perl.
 
 =head1 DESCRIPTION
+
+This collection of policies is designed to help you "peer" up from
+your currently installed version of perl to see what features you may
+be using that are deprecated in future versions of perl. Since it lets
+you investigate versions of perl in the distance without having to
+change the currently running version of perl (or even install another
+version), I have chosen the "Periscope" name.
 
 The included policies are:
 
@@ -49,8 +52,17 @@ prohibits use of $* [Severity: 3]
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
-All policies included are in the "example" theme.  See the
-L<Perl::Critic|Perl::Critic> documentation for how to make use of this.
+All policies included are in the "periscope" theme.  See the
+L<Perl::Critic|Perl::Critic> documentation for how to make use of
+this.
+
+=head1 AFFILIATION
+
+This module has no functionality, but instead contains documentation
+for this distribution and acts as a means of pulling other modules
+into a bundle.  All of the Policy modules contained herein will have
+an "AFFILIATION" section announcing their participation in this
+grouping.
 
 =head1 AUTHOR
 
@@ -95,6 +107,9 @@ L<http://search.cpan.org/dist/Perl-Critic-Periscope/>
 
 =head1 ACKNOWLEDGEMENTS
 
+Part of the inspiration for this collection of policies was
+L<http://blog.robin.smidsrod.no/index.php/2009/07/03/deprecated-code-analyzer-for-perl>. For
+that, I thank Robin Smidsrød.
 
 =head1 COPYRIGHT & LICENSE
 
