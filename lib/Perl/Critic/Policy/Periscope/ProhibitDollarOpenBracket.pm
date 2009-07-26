@@ -52,9 +52,8 @@ L<Perl::Critic::Periscope|Perl::Critic::Periscope> distribution.
 
 =head1 DESCRIPTION
 
-According to L<http://perldoc.perl.org/perldelta.html>, $* has been
-deprecated in favor of the /s and /m regexp modifiers. This policy
-creates a violation for each use of $*.
+According to L<http://perldoc.perl.org/perlvar.html>, $[ has been
+deprecated. This policy creates a violation for each use of $[.
 
 =head1 CONFIGURATION
 
