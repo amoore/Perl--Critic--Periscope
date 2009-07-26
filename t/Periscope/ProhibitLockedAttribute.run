@@ -1,0 +1,19 @@
+## name basics
+## failures 2
+## cut
+
+sub foo :locked {
+}
+sub foo : locked {
+}
+
+#-----------------------------------------------------------------------------
+
+## name ok
+## failures 0
+## cut
+
+my $foo = ':locked';
+sub foo :lockedfoo {
+}
+
